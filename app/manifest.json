@@ -1,0 +1,55 @@
+{
+    "name": "Surfy",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Your surfing guide",
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "scripts/chromereload.js",
+            "scripts/jquery.min.js",
+            "scripts/surfy.js",
+            "scripts/background.js"
+        ]
+    },
+    "page_action": {
+        "default_icon": {
+            "19": "images/icon-19.png",
+            "38": "images/icon-38.png"
+        },
+        "default_title": "Surfy"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "css": [
+                "styles/main.css"
+            ],
+            "js": [
+                "scripts/jquery.min.js",
+                "scripts/jquery.loadTemplate.js",
+                "scripts/surfy.js",
+                "scripts/templates.js",
+                "scripts/contentscript.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": [
+        "fonts/glyphicons-halflings-regular",
+        "images/surfy-logo-alt.png"
+    ]
+}

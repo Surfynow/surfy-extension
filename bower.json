@@ -1,0 +1,9 @@
+{
+    "name": "Surfy",
+    "version": "0.0.1",
+    "dependencies": {
+        "jquery": "1.11.0",
+        "jquery.template": "1.4.5"
+    },
+    "devDependencies": {}
+}
