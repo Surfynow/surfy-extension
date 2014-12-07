@@ -1,4 +1,7 @@
+@import "variables";
 @import "vendor_prefixes";
+@import "glyphicons";
+@import "utils";
 
 .surfyContainer {
   position: fixed;
@@ -29,7 +32,7 @@
     z-index: 0;
   }
 
-  .logo {
+  .surfylogo {
     position: absolute;
     bottom: 5px;
     right: 10px;
@@ -44,6 +47,10 @@
 
   .link {
     margin: 10px 15px;
+  }
+
+  .header {
+    margin: 0 15px;
   }
 
   .comment {

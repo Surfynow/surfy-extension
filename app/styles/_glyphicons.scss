@@ -14,11 +14,11 @@
 // Import the fonts
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('fonts/glyphicons-halflings-regular.eot');
-  src: url('fonts/glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'),
-       url('glyphicons-halflings-regular.woff')) format('woff'),
-       url('glyphicons-halflings-regular.ttf')) format('truetype'),
-       url('glyphicons-halflings-regular.svg#123')) format('svg');
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot');
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.woff') format('woff'),
+       url('chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.svg#123') format('svg');
 }
 
 // Catchall baseclass
