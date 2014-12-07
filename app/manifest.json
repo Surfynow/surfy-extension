@@ -11,7 +11,7 @@
     "background": {
         "scripts": [
             "scripts/chromereload.js",
-            "scripts/jquery.min.js",
+            "scripts/thirdparty/jquery.min.js",
             "scripts/surfy.js",
             "scripts/background.js"
         ]
@@ -33,8 +33,8 @@
                 "styles/main.css"
             ],
             "js": [
-                "scripts/jquery.min.js",
-                "scripts/jquery.loadTemplate.js",
+                "scripts/thirdparty/jquery.min.js",
+                "scripts/thirdparty/mustache.js",
                 "scripts/surfy.js",
                 "scripts/templates.js",
                 "scripts/contentscript.js"
