@@ -4,16 +4,16 @@ var surfy = surfy || {};
 
 surfy.init = function () {
     function addListener() {
-        chrome.runtime.onMessage.addListener(surfy.onClick);
+        if (chrome.runtime && chrome.runtime.onMessage) {
+            chrome.runtime.onMessage.addListener(surfy.onClick);
+        } else {
+            // sometimes Chrome extension runtime is not ready yet
+            setTimeout(addListener, 500);
+        }
     }
 
     console.log("Content script is loaded");
-    if (chrome.runtime.onMessage) {
-        addListener();
-    } else {
-        // sometimes Chrome extension runtime is not ready yet
-        setTimeout(addListener, 500);
-    }
+    addListener();
 };
 
 surfy.onClick = function (request, sender, sendResponse) {
@@ -35,16 +35,18 @@ surfy.initContainer = function (currentPageUrl, sendResponse) {
     surfy.appendTemplate(surfyContainer, "container");
     $("body").append(surfyContainer);
 
-    var content = surfyContainer.find(".content");
+    var content = surfyContainer.find(".s-content");
 
     var url = surfy.config.restUrl;
     $.get(url + "/comments/" + currentPageUrl).done(function (data) {
         var parentDiv = $("<div/>");
 
         surfy.appendTemplate(parentDiv, "headerSection", data);
+        surfy.appendTemplate(parentDiv, "commentSection", data);
 
+        var commentEntries = parentDiv.find(".s-entries");
         $.each(data.comments, function (index, comment) {
-            surfy.appendTemplate(parentDiv, "commentSection", comment);
+            surfy.appendTemplate(commentEntries, "commentEntry", comment);
         });
 
         content.append(parentDiv);
