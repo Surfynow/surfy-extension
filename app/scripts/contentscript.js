@@ -4,15 +4,15 @@ var surfy = surfy || {};
 
 surfy.init = function () {
     function addListener() {
-        chrome.runtime.onMessage.addListener(surfy.onClick);
+        if (chrome.runtime && chrome.runtime.onMessage) {
+            chrome.runtime.onMessage.addListener(surfy.onClick);
+        } else {
+            // sometimes Chrome extension runtime is not ready yet
+            setTimeout(addListener, 500);
+        }
     }
     console.log("Content script is loaded");
-    if (chrome.runtime.onMessage) {
-        addListener();
-    } else {
-        // sometimes Chrome extension runtime is not ready yet
-        setTimeout(addListener, 500);
-    }
+    addListener();
 };
 
 surfy.onClick = function (request, sender, sendResponse) {

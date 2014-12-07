@@ -21,7 +21,7 @@
     @include transform(translate(0, 0));
   }
 
-  .bg {
+  .s-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -32,36 +32,94 @@
     z-index: 0;
   }
 
-  .surfylogo {
+  .s-surfylogo {
     position: absolute;
     bottom: 5px;
     right: 10px;
   }
 
-  .content {
+  .s-close {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .s-content {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
   }
 
-  .link {
+  .s-link {
     margin: 10px 15px;
   }
 
-  .header {
+  .s-options {
     margin: 0 15px;
   }
 
-  .comment {
+  .s-comment {
     margin: 10px 15px;
 
-    .author {
-      font-weight: bold;
+    .s-textarea {
+      float: left;
+      width: 200px;
+      height: 50px;
+      border: none;
+      padding: 5px;
     }
 
-    .text {
+    .s-button {
+      width: 60px;
+      height: 60px;
+      background: $primary;
+      border: none;
+      color: white;
+      font-size: 14px;
+    }
 
+    .s-entry {
+      position: relative;
+      margin-top: 10px;
+
+      .s-avatar {
+        float: left;
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50px;
+        border: 2px solid #eee;
+      }
+
+      .s-text {
+        float: left;
+        margin-left: 10px;
+
+        .s-author {
+          font-size: 10px;
+          color: #aaa;
+        }
+
+        .s-cmt {
+          margin-top: 3px;
+        }
+      }
+
+      .s-controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+      }
+
+      &:hover {
+        .s-controls {
+          display: block;
+        }
+      }
     }
   }
 }

@@ -1,5 +1,19 @@
-h1, h2, h3, h4, h5, h6 {
-  color: $primary;
+.surfyContainer {
+  h1, h2, h3, h4, h5, h6 {
+    color: $primary;
+    margin-bottom: 5px;
+  }
+
+  .clearfix {
+    &:before,
+    &:after {
+      content: " "; // 1
+      display: table; // 2
+    }
+    &:after {
+      clear: both;
+    }
+  }
 }
 
 .primary {
