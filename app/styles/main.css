@@ -1018,17 +1018,17 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\000032}}
-.surfyContainer h1, .surfyContainer h2, .surfyContainer h3, .surfyContainer h4, .surfyContainer h5, .surfyContainer h6 {
+.s-container h1, .s-container h2, .s-container h3, .s-container h4, .s-container h5, .s-container h6 {
   color: #009bcb;
   margin-bottom: 5px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\000039}}
-.surfyContainer .clearfix:before, .surfyContainer .clearfix:after {
+.s-container .clearfix:before, .s-container .clearfix:after {
   content: " ";
   display: table;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000313}}
-.surfyContainer .clearfix:after {
+.s-container .clearfix:after {
   clear: both;
 }
 
