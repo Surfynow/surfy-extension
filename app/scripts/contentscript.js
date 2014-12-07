@@ -40,8 +40,10 @@ surfy.initContainer = function (currentPageUrl, sendResponse) {
 
         var rendered = Mustache.render(mainTemplate, { comments: comments });
         $("body").append(rendered);
-        surfy.getContainer().addClass('visible');
         sendResponse({"commentsLoaded": true});
+        setTimeout(function () {
+            surfy.getContainer().addClass('visible');
+        }, 200);
     }
 
     $.get(chrome.extension.getURL("templates/main.html"), function (template) {
