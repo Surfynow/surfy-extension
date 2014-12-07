@@ -53,6 +53,7 @@
         "fonts/glyphicons-halflings-regular.svg",
         "fonts/glyphicons-halflings-regular.ttf",
         "fonts/glyphicons-halflings-regular.woff",
-        "images/surfy-logo-alt.png"
+        "images/surfy-logo-alt.png",
+        "templates/main.html"
     ]
 }

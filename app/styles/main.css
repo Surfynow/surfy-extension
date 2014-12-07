@@ -1038,7 +1038,7 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\000036}}
-.surfyContainer {
+.s-container {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -1056,14 +1056,14 @@
   transition: transform 1s;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000320}}
-.surfyContainer.visible {
+.s-container.visible {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000324}}
-.surfyContainer .s-bg {
+.s-container .s-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -1074,13 +1074,13 @@
   z-index: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000335}}
-.surfyContainer .s-surfylogo {
+.s-container .s-surfylogo {
   position: absolute;
   bottom: 5px;
   right: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000341}}
-.surfyContainer .s-close {
+.s-container .s-close {
   position: absolute;
   top: 3px;
   right: 10px;
@@ -1088,26 +1088,26 @@
   font-size: 14px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000349}}
-.surfyContainer .s-content {
+.s-container .s-content {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000356}}
-.surfyContainer .s-link {
+.s-container .s-link {
   margin: 10px 15px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000360}}
-.surfyContainer .s-options {
+.s-container .s-options {
   margin: 0 15px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000364}}
-.surfyContainer .s-comment {
+.s-container .s-comment {
   margin: 10px 15px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000367}}
-.surfyContainer .s-comment .s-textarea {
+.s-container .s-comment .s-textarea {
   float: left;
   width: 200px;
   height: 50px;
@@ -1115,7 +1115,7 @@
   padding: 5px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000375}}
-.surfyContainer .s-comment .s-button {
+.s-container .s-comment .s-button {
   width: 60px;
   height: 60px;
   background: #009bcb;
@@ -1124,12 +1124,12 @@
   font-size: 14px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000384}}
-.surfyContainer .s-comment .s-entry {
+.s-container .s-comment .s-entry {
   position: relative;
   margin-top: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000388}}
-.surfyContainer .s-comment .s-entry .s-avatar {
+.s-container .s-comment .s-entry .s-avatar {
   float: left;
   width: 35px;
   height: 35px;
@@ -1138,27 +1138,27 @@
   border: 2px solid #eee;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000397}}
-.surfyContainer .s-comment .s-entry .s-text {
+.s-container .s-comment .s-entry .s-text {
   float: left;
   margin-left: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\00003101}}
-.surfyContainer .s-comment .s-entry .s-text .s-author {
+.s-container .s-comment .s-entry .s-text .s-author {
   font-size: 10px;
   color: #aaa;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\00003106}}
-.surfyContainer .s-comment .s-entry .s-text .s-cmt {
+.s-container .s-comment .s-entry .s-text .s-cmt {
   margin-top: 3px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\00003111}}
-.surfyContainer .s-comment .s-entry .s-controls {
+.s-container .s-comment .s-entry .s-controls {
   position: absolute;
   right: 0;
   top: 0;
   display: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\00003119}}
-.surfyContainer .s-comment .s-entry:hover .s-controls {
+.s-container .s-comment .s-entry:hover .s-controls {
   display: block;
 }

@@ -11,6 +11,7 @@ surfy.init = function () {
             setTimeout(addListener, 500);
         }
     }
+
     console.log("Content script is loaded");
     addListener();
 };
@@ -29,12 +30,28 @@ surfy.onClick = function (request, sender, sendResponse) {
 };
 
 surfy.initContainer = function (currentPageUrl, sendResponse) {
+    var mainTemplate,
+        comments;
 
-    $.get( surfy.config.restUrl + "/comments/" + currentPageUrl).done(function (data) {
-        var renderedTemplate = Mustache.render(surfy.templates.mainTemplate, { comments: data.comments});
-        $("body").append(renderedTemplate);
+    function render() {
+        if (!mainTemplate || !comments) {
+            return;
+        }
+
+        var rendered = Mustache.render(mainTemplate, { comments: comments });
+        $("body").append(rendered);
         surfy.getContainer().addClass('visible');
         sendResponse({"commentsLoaded": true});
+    }
+
+    $.get(chrome.extension.getURL("templates/main.html"), function (template) {
+        mainTemplate = template;
+        render();
+    });
+
+    $.get(surfy.config.restUrl + "/comments/" + currentPageUrl).done(function (data) {
+        comments = data.comments;
+        render();
     });
 };
 
