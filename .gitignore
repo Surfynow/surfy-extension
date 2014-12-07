@@ -9,3 +9,4 @@ package
 .idea/
 .idea/workspace.xml
 .idea_modules/
+**/*.css
