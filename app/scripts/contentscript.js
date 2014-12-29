@@ -17,7 +17,7 @@ surfy.init = function () {
 };
 
 surfy.onClick = function (request, sender, sendResponse) {
-    var currentPageUrl = encodeURIComponent(window.location.origin);
+    var currentPageUrl = encodeURIComponent(window.location.href);
 
     var surfyContainer = surfy.getContainer();
     if (!surfyContainer.length) {
@@ -30,30 +30,54 @@ surfy.onClick = function (request, sender, sendResponse) {
 };
 
 surfy.initContainer = function (currentPageUrl, sendResponse) {
-    var mainTemplate,
-        comments;
-
-    function render() {
-        if (!mainTemplate || !comments) {
-            return;
-        }
-
-        var rendered = Mustache.render(mainTemplate, { comments: comments });
-        $("body").append(rendered);
-        sendResponse({"commentsLoaded": true});
-        setTimeout(function () {
-            surfy.getContainer().addClass('visible');
-        }, 200);
-    }
 
     $.get(chrome.extension.getURL("templates/main.html"), function (template) {
-        mainTemplate = template;
+        surfy.template = template;
         render();
     });
 
-    $.get(surfy.config.restUrl + "/comments/" + currentPageUrl).done(function (data) {
-        comments = data.comments;
-        render();
+    function render() {
+        if (!surfy.template) return;
+        surfy.refresh(true);
+    }
+
+    $.get(surfy.config.restUrl + "/comment/" + currentPageUrl).done(function (data) {
+        surfy.comments = data.comments;
+        surfy.refresh(true);
+    });
+};
+
+surfy.refresh = function (animate) {
+
+    $("#surfy").remove();
+
+    var rendered = Mustache.render(surfy.template, { comments: surfy.comments });
+    $("body").append(rendered);
+
+    if (animate) {
+        //rendering view for first time
+        setTimeout(function () {
+            surfy.getContainer().addClass('visible');
+        }, 200);
+    } else {
+        surfy.getContainer().addClass('visible');
+    }
+
+    surfy.setEventHandlers();
+};
+surfy.setEventHandlers = function () {
+    $("#commentBtn").click(function (event) {
+        var comment = $("#commentBox").val();
+        if (comment.length > 0) {
+            var request = {
+                url: window.location.href,
+                comment: comment
+            };
+            $.post(surfy.config.restUrl + "/comment", request, function (data) {
+                surfy.comments = data.comments;
+                surfy.refresh();
+            });
+        }
     });
 };
 

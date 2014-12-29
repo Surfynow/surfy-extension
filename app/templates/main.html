@@ -13,8 +13,9 @@
 
                     <h2 class="glyphicon glyphicon-star-empty"></h2></div>
             </div>
-            <div class="s-comment"><textarea class="s-textarea">post your comment here...</textarea>
-                <button class="s-button">Post</button>
+            <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..." id="commentBox"></textarea>
+                <button class="s-button" id="commentBtn">Post</button>
+
                 <div class="s-entries"><h3>Top Comments</h3>
                     {{ #comments }}
                     <div class="s-entry">

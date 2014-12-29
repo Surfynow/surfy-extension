@@ -36,7 +36,6 @@
                 "scripts/thirdparty/jquery.min.js",
                 "scripts/thirdparty/mustache.js",
                 "scripts/surfy.js",
-                "scripts/templates.js",
                 "scripts/contentscript.js"
             ],
             "run_at": "document_end",
