@@ -45,8 +45,20 @@
     "permissions": [
         "tabs",
         "http://*/*",
-        "https://*/*"
+        "https://*/*",
+        "identity",
+        "https://accounts.google.com/*",
+        "https://www.googleapis.com/*"
     ],
+
+    "key" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn77YySWfW2PKVNpiLa6ykssCbo+N/ogayyVOhGkxV8U+vwFkglxC0kM7inLQBht2bMJjN8FDR4r4b6J4/UIzdoznJLZaYZEFr0UcER7UsnO6EfBOq05Hkg7t923zPDibkO1xsFYkS4DuVUEQGlChAvbzfuERGRr07kCn6y/LScQvpC00qOSp+LDLogvdAluWo8LGR1Mi3tIm0wEOGGQPg9tozXSmz7ddNiFOrHuBd36sZ8UdmuL2u5iiVbNQiqPFPZs8NZPMNWd+/5//VB9d51Zy/BxEtfmhfZzqDrmKg7P1WOMrxlgK0Ru7BCjwnN2dXeyYtlA9ExtTr3CnF8t3YQIDAQAB",
+    "oauth2": {
+        "client_id": "767910816936-vd6lh442hb1o9nefauqd2jv8ebij9q97.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/plus.login"
+        ]
+    },
+
     "web_accessible_resources": [
         "fonts/glyphicons-halflings-regular.eot",
         "fonts/glyphicons-halflings-regular.svg",

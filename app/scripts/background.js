@@ -24,3 +24,12 @@ chrome.pageAction.onClicked.addListener(function (tab) {
         console.log("response from content script" + response);
     });
 });
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendReponse) {
+    chrome.identity.getAuthToken({ 'interactive': true }, function (token) {
+        sendReponse({token: token});
+    });
+    return true;
+});
+
+

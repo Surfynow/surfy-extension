@@ -1,6 +1,7 @@
 'use strict';
 
 var surfy = surfy || {};
+surfy.isSignedIn = false;
 
 surfy.init = function () {
     function addListener() {
@@ -45,6 +46,7 @@ surfy.initContainer = function (currentPageUrl, sendResponse) {
         surfy.comments = data.comments;
         surfy.refresh(true);
     });
+
 };
 
 surfy.refresh = function (animate) {
@@ -67,17 +69,33 @@ surfy.refresh = function (animate) {
 };
 surfy.setEventHandlers = function () {
     $("#commentBtn").click(function (event) {
-        var comment = $("#commentBox").val();
-        if (comment.length > 0) {
-            var request = {
-                url: window.location.href,
-                comment: comment
-            };
-            $.post(surfy.config.restUrl + "/comment", request, function (data) {
-                surfy.comments = data.comments;
-                surfy.refresh();
-            });
+        if (surfy.isSignedIn) {
+            var comment = $("#commentBox").val();
+            if (comment.length > 0) {
+                var request = {
+                    url: window.location.href,
+                    comment: comment
+                };
+                $.post(surfy.config.restUrl + "/comment", request, function (data) {
+                    surfy.comments = data.comments;
+                    surfy.refresh();
+                });
+            }
         }
+    });
+
+    $("#signIn").click(function(event){
+        if(!surfy.authToken){
+            surfy.signIn();
+        }
+    });
+};
+
+surfy.signIn = function () {
+    chrome.runtime.sendMessage({getToken: true}, function(response) {
+        surfy.authToken = response.token;
+        console.log("token is" + surfy.authToken);
+        surfy.isSignedIn = true;
     });
 };
 
