@@ -69,7 +69,7 @@ surfy.refresh = function (animate) {
 };
 surfy.setEventHandlers = function () {
     $("#commentBtn").click(function (event) {
-        if (surfy.isSignedIn) {
+//        if (surfy.isSignedIn) {
             var comment = $("#commentBox").val();
             if (comment.length > 0) {
                 var request = {
@@ -81,7 +81,7 @@ surfy.setEventHandlers = function () {
                     surfy.refresh();
                 });
             }
-        }
+//        }
     });
 
     $("#signIn").click(function(event){
