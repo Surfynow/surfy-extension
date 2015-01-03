@@ -4,21 +4,24 @@
         <button id="signIn">Sign Me In</button>
         <div>
             <div class="s-options">
-                <div class="s-ranking"><h2 class="glyphicon glyphicon-star-empty"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty"></h2>
+                <div class="s-ranking">
+                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="1"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty"></h2>
+                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="2"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty"></h2>
+                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="3"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty"></h2></div>
+                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="4"></h2>
+
+                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="5"></h2>
+                </div>
             </div>
             <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..." id="commentBox"></textarea>
                 <button class="s-button" id="commentBtn">Post</button>
 
                 <div class="s-entries"><h3>Top Comments</h3>
-                    {{ #comments }}
+                    {{#each comments}}
                     <div class="s-entry">
                         <div class="s-avatar"></div>
                         <div class="s-text">
@@ -28,7 +31,7 @@
                         <div class="s-controls"><span class="glyphicon glyphicon-pencil"></span></div>
                         <div class="clearfix"></div>
                     </div>
-                    {{ /comments }}
+                    {{/each}}
                 </div>
             </div>
         </div>

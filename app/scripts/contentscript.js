@@ -47,13 +47,26 @@ surfy.initContainer = function (currentPageUrl, sendResponse) {
         surfy.refresh(true);
     });
 
+    $.get(surfy.config.restUrl + "/rating/" + currentPageUrl).done(function (data) {
+        if (data.success)
+            surfy.rating = data.rating.rating.toFixed();//FIXME we should show partial ratings like 3.3 correctly by partially filling the arrow
+        else surfy.rating = 0;
+        surfy.refresh(true);
+    });
 };
 
 surfy.refresh = function (animate) {
 
     $("#surfy").remove();
 
-    var rendered = Mustache.render(surfy.template, { comments: surfy.comments });
+    var comments = surfy.comments || [];
+    var rating = surfy.rating || 0;
+
+    var filledStars = rating;
+    var emptyStars = 5 - rating;
+
+    var template = Handlebars.compile(surfy.template);
+    var rendered = template({ comments: comments, filledStars: filledStars, emptyStars: emptyStars });
     $("body").append(rendered);
 
     if (animate) {
@@ -89,6 +102,13 @@ surfy.setEventHandlers = function () {
             surfy.signIn();
         }
     });
+
+    $(".starRating").click(function (event) {
+        var clickedStar = event.currentTarget;
+        var rating = $(clickedStar).data("rating");
+
+        alert(rating);
+    })
 };
 
 surfy.signIn = function () {

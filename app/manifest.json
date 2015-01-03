@@ -34,7 +34,7 @@
             ],
             "js": [
                 "scripts/thirdparty/jquery.min.js",
-                "scripts/thirdparty/mustache.js",
+                "scripts/thirdparty/handlebars-v2.0.0.js",
                 "scripts/surfy.js",
                 "scripts/contentscript.js"
             ],
