@@ -1,26 +1,27 @@
 <div id="surfy" class="s-container">
     <div class="s-bg"></div>
     <div class="s-content">
-        <button id="signIn">Sign Me In</button>
         <div>
-            <div class="s-options">
+            <ul class="s-options">
+                <li class="s-ranking">
+                    <h2 class="glyphicon glyphicon-star starRating" data-rating="1"></h2>
 
-                <div class="s-ranking">
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="1"></h2>
+                    <h2 class="glyphicon glyphicon-star starRating" data-rating="2"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="2"></h2>
+                    <h2 class="glyphicon glyphicon-star starRating" data-rating="3"></h2>
 
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="3"></h2>
-
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="4"></h2>
+                    <h2 class="glyphicon glyphicon-star starRating" data-rating="4"></h2>
 
                     <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="5"></h2>
-                </div>
-            </div>
+                </li>
+                <li class="s-hotness">
+                    <div class="hotness-sprite hotness-hotness-4"></div>
+                </li>
+            </ul>
             <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..." id="commentBox"></textarea>
                 <button class="s-button" id="commentBtn">Post</button>
 
-                <div class="s-entries"><h3>Top Comments</h3>
+                <div class="s-entries"><h3 class="alt">Top Comments</h3>
                     {{#each comments}}
                     <div class="s-entry">
                         <div class="s-avatar"></div>
@@ -36,7 +37,13 @@
             </div>
         </div>
     </div>
-    <a class="s-close">x</a>
 
-    <div class="s-surfylogo"></div>
+    <ul class="s-top-options">
+        <li><button id="signIn" class="s-signin">Sign me in</button></li>
+        <li><a class="s-close">x</a></li>
+    </ul>
+
+    <div class="s-surfylogo">
+        <a href="#" target="_blank"><div></div></a>
+    </div>
 </div>

@@ -80,6 +80,7 @@ surfy.refresh = function (animate) {
 
     surfy.setEventHandlers();
 };
+
 surfy.setEventHandlers = function () {
     $("#commentBtn").click(function (event) {
 //        if (surfy.isSignedIn) {

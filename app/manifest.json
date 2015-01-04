@@ -10,8 +10,8 @@
     "default_locale": "en",
     "background": {
         "scripts": [
+            "lib/jquery.min.js",
             "scripts/chromereload.js",
-            "scripts/thirdparty/jquery.min.js",
             "scripts/surfy.js",
             "scripts/background.js"
         ]
@@ -33,8 +33,8 @@
                 "styles/main.css"
             ],
             "js": [
-                "scripts/thirdparty/jquery.min.js",
-                "scripts/thirdparty/handlebars-v2.0.0.js",
+                "lib/jquery.min.js",
+                "lib/handlebars-v2.0.0.js",
                 "scripts/surfy.js",
                 "scripts/contentscript.js"
             ],
@@ -64,7 +64,8 @@
         "fonts/glyphicons-halflings-regular.svg",
         "fonts/glyphicons-halflings-regular.ttf",
         "fonts/glyphicons-halflings-regular.woff",
-        "images/surfy-logo-alt.png",
+        "images/*.png",
+        "images/generated/*.png",
         "templates/main.html"
     ]
 }

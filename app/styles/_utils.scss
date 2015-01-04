@@ -1,7 +1,16 @@
+.no-list {
+  list-style: none;
+  margin: 0;
+}
+
 .s-container {
   h1, h2, h3, h4, h5, h6 {
     color: $primary;
     margin-bottom: 5px;
+
+    &.alt {
+      color: #eee;
+    }
   }
 
   .clearfix {

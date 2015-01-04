@@ -2,12 +2,13 @@
 @import "vendor_prefixes";
 @import "glyphicons";
 @import "utils";
+@import "sprites";
 
 .s-container {
   position: fixed;
   top: 0px;
   right: 0px;
-  width: 300px;
+  width: 250px;
   font-size: 12px;
   height: 100%;
   color: #fff;
@@ -28,7 +29,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.75);
-    -webkit-filter: blur(1px);
+//    -webkit-filter: blur(1px);
     z-index: 0;
   }
 
@@ -36,14 +37,13 @@
     position: absolute;
     bottom: 5px;
     right: 10px;
-  }
 
-  .s-close {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    color: #aaa;
-    font-size: 14px;
+    div {
+      background: url('chrome-extension://__MSG_@@extension_id__/images/surfy-logo-alt.png') no-repeat;
+      background-size: 100%;
+      width: 76px;
+      height: 41px;
+    }
   }
 
   .s-content {
@@ -51,6 +51,7 @@
     top: 0;
     left: 0;
     z-index: 1;
+    margin-top: 15px;
   }
 
   .s-link {
@@ -58,27 +59,64 @@
   }
 
   .s-options {
+    @extend .no-list;
     margin: 0 15px;
+
+    li {
+      display: inline-block;
+    }
+
+    .s-ranking {
+      h2 {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .s-top-options {
+    @extend .no-list;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    z-index: 2;
+
+    li {
+      display: inline-block;
+    }
+
+    .s-close {
+      color: $light-gray;
+      font-size: 14px;
+    }
+
+    .s-signin {
+      color: $light-gray;
+      background: none;
+      border: none;
+      text-decoration: underline;
+    }
   }
 
   .s-comment {
-    margin: 10px 15px;
+    margin: 5px 15px 10px;
 
     .s-textarea {
       float: left;
-      width: 200px;
-      height: 50px;
+      width: 170px;
+      height: 40px;
       border: none;
       padding: 5px;
     }
 
     .s-button {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 50px;
       background: $primary;
       border: none;
+      border-left: 1px solid black;
       color: white;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .s-entry {
