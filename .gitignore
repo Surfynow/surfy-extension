@@ -11,3 +11,5 @@ package
 .idea/workspace.xml
 .idea_modules/
 **/*.css
+*.iml
+**/generated/*
