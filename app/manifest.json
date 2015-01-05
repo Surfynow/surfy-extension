@@ -4,8 +4,8 @@
     "manifest_version": 2,
     "description": "Your surfing guide",
     "icons": {
-        "16": "images/icon-16.png",
-        "128": "images/icon-128.png"
+        "16": "images/surfy-icon.png",
+        "128": "images/surfy-icon-big.png"
     },
     "default_locale": "en",
     "background": {
@@ -17,10 +17,7 @@
         ]
     },
     "page_action": {
-        "default_icon": {
-            "19": "images/icon-19.png",
-            "38": "images/icon-38.png"
-        },
+        "default_icon": {},
         "default_title": "Surfy"
     },
     "content_scripts": [
