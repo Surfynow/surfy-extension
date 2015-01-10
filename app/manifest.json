@@ -4,23 +4,20 @@
     "manifest_version": 2,
     "description": "Your surfing guide",
     "icons": {
-        "16": "images/icon-16.png",
-        "128": "images/icon-128.png"
+        "16": "images/surfy-icon.png",
+        "128": "images/surfy-icon-big.png"
     },
     "default_locale": "en",
     "background": {
         "scripts": [
+            "lib/jquery.min.js",
             "scripts/chromereload.js",
-            "scripts/thirdparty/jquery.min.js",
             "scripts/surfy.js",
             "scripts/background.js"
         ]
     },
     "page_action": {
-        "default_icon": {
-            "19": "images/icon-19.png",
-            "38": "images/icon-38.png"
-        },
+        "default_icon": {},
         "default_title": "Surfy"
     },
     "content_scripts": [
@@ -33,8 +30,8 @@
                 "styles/main.css"
             ],
             "js": [
-                "scripts/thirdparty/jquery.min.js",
-                "scripts/thirdparty/handlebars-v2.0.0.js",
+                "lib/jquery.min.js",
+                "lib/handlebars-v2.0.0.js",
                 "scripts/surfy.js",
                 "scripts/contentscript.js"
             ],
@@ -64,7 +61,8 @@
         "fonts/glyphicons-halflings-regular.svg",
         "fonts/glyphicons-halflings-regular.ttf",
         "fonts/glyphicons-halflings-regular.woff",
-        "images/surfy-logo-alt.png",
+        "images/*.png",
+        "images/generated/*.png",
         "templates/main.html"
     ]
 }

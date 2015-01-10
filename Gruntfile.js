@@ -140,9 +140,9 @@ module.exports = function (grunt) {
         javascriptsDir: '<%= config.app %>/scripts',
         fontsDir: '<%= config.app %>/styles/fonts',
         importPath: '<%= config.app %>/bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
+        httpImagesPath: 'chrome-extension://__MSG_@@extension_id__/images',
+        httpGeneratedImagesPath: 'chrome-extension://__MSG_@@extension_id__/images/generated',
+        httpFontsPath: 'chrome-extension://__MSG_@@extension_id__/styles/fonts',
         relativeAssets: false,
         assetCacheBuster: false
       },

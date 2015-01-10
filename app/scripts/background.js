@@ -6,12 +6,13 @@ function showExtension(tabId, changeInfo, tab) {
         var currentUrl = encodeURIComponent(tab.url);
         $.get(surfyUrl + "/rating/" + currentUrl).done(function (data) {
             chrome.pageAction.show(tabId);
+            // FIXME: Specify different icons for each rating category
             if (data.rating < 3) {
-                chrome.pageAction.setIcon({tabId: tabId, path: "images/low_star.png"});
+                chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
             } else if (data.rating === 3) {
-                chrome.pageAction.setIcon({tabId: tabId, path: "images/icon.png"});
+                chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
             } else {
-                chrome.pageAction.setIcon({tabId: tabId, path: "images/goodstar.png"});
+                chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
             }
         });
     }

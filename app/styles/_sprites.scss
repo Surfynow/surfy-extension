@@ -1,0 +1,7 @@
+@import "hotness/*.png";
+@include all-hotness-sprites;
+
+.hotness-sprite {
+  width: 25px;
+  height: 25px;
+}
