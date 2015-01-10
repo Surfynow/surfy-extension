@@ -2,6 +2,11 @@ surfy-extension
 =====
 
 #### Setup
+install compass
+```
+gem install compass
+```
+
 install bower
 ```
 npm install bower

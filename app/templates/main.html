@@ -24,7 +24,7 @@
                 <div class="s-entries"><h3 class="alt">Top Comments</h3>
                     {{#each comments}}
                     <div class="s-entry">
-                        <div class="s-avatar"></div>
+                        <img class="s-avatar" src="{{ avatar }}" />
                         <div class="s-text">
                             <div class="s-author">{{ author }}</div>
                             <div class="s-cmt">{{ comment }}</div>
@@ -40,7 +40,7 @@
 
     <ul class="s-top-options">
         <li><button id="signIn" class="s-signin">Sign me in</button></li>
-        <li><a class="s-close">x</a></li>
+        <li><a href="#" class="s-close">x</a></li>
     </ul>
 
     <div class="s-surfylogo">
