@@ -1,6 +1,7 @@
 'use strict';
 
 var surfy = surfy || {};
+var surfyService = surfyService || {};
 surfy.isSignedIn = false;
 
 surfy.init = function () {
@@ -37,7 +38,9 @@ surfy.toggleContainer = function () {
     }
 };
 
-surfy.initContainer = function (currentPageUrl, sendResponse) {
+surfy.initContainer = function (currentPageUrl) {
+
+    this.currentPageUrl = currentPageUrl;
 
     $.get(chrome.extension.getURL("templates/main.html"), function (template) {
         surfy.template = template;
@@ -49,18 +52,13 @@ surfy.initContainer = function (currentPageUrl, sendResponse) {
         surfy.refresh(true);
     }
 
-    $.get(surfy.config.restUrl + "/comment/" + currentPageUrl).done(function (data) {
+    surfyService.findComments(currentPageUrl).then(function (data) {
         surfy.comments = data.comments;
-        $.map(surfy.comments, function (c) {
-            c.avatar = chrome.extension.getURL("/images/surfy-avatar.png");
-        });
         surfy.refresh(true);
     });
 
-    $.get(surfy.config.restUrl + "/rating/" + currentPageUrl).done(function (data) {
-        if (data.success)
-            surfy.rating = data.rating.rating.toFixed();//FIXME we should show partial ratings like 3.3 correctly by partially filling the arrow
-        else surfy.rating = 0;
+    surfyService.getPageRating(currentPageUrl).done(function (data) {
+        surfy.rating = data;
         surfy.refresh(true);
     });
 };
@@ -97,7 +95,7 @@ surfy.refresh = function (animate) {
 
 surfy.setEventHandlers = function () {
     var self = this;
-    this.findEl("#commentBtn").click(function (event) {
+    this.findEl("#commentBtn").click(function () {
 //        if (surfy.isSignedIn) {
         var comment = $("#commentBox").val();
         if (comment.length > 0) {
@@ -105,15 +103,15 @@ surfy.setEventHandlers = function () {
                 url: window.location.href,
                 comment: comment
             };
-            $.post(surfy.config.restUrl + "/comment", request, function (data) {
+            surfyService.submitComment(request).then(function (data) {
                 surfy.comments = data.comments;
-                surfy.refresh();
+                surfy.refresh(false);
             });
         }
 //        }
     });
 
-    this.findEl("#signIn").click(function (event) {
+    this.findEl("#signIn").click(function () {
         if (!surfy.authToken) {
             surfy.signIn();
         }
