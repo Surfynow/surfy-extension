@@ -40,8 +40,6 @@ surfy.toggleContainer = function () {
 
 surfy.initContainer = function (currentPageUrl) {
 
-    this.currentPageUrl = currentPageUrl;
-
     $.get(chrome.extension.getURL("templates/main.html"), function (template) {
         surfy.template = template;
         render();
@@ -67,17 +65,25 @@ surfy.refresh = function (animate) {
 
     $("#surfy").remove();
 
+    function calculateStars() {
+        var stars = [];
+        for (var i = 0; i < 5; i++) {
+            stars[i] = {
+                index: i + 1,
+                empty: i >= rating ? '-empty' : ''
+            }
+        }
+        return stars;
+    }
+
     var comments = surfy.comments || [];
     var rating = surfy.rating || 0;
-
-    var filledStars = rating;
-    var emptyStars = 5 - rating;
+    var stars = calculateStars();
 
     var template = Handlebars.compile(surfy.template);
     var rendered = template({
         comments: comments,
-        filledStars: filledStars,
-        emptyStars: emptyStars
+        stars: stars
     });
     $("body").append(rendered);
 

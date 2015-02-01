@@ -1,3 +1,8 @@
 $primary: #009bcb;
 $secondary: #012e3d;
 $light-gray: #aaa;
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/open-sans-300.ttf');
+}

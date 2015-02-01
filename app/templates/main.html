@@ -4,15 +4,9 @@
         <div>
             <ul class="s-options">
                 <li class="s-ranking">
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="1"></h2>
-
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="2"></h2>
-
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="3"></h2>
-
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="4"></h2>
-
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="5"></h2>
+                    {{#each stars}}
+                    <div class="glyphicon glyphicon-star{{ empty }} starRating" data-rating="{{ index }}"></div>
+                    {{/each}}
                 </li>
                 <li class="s-hotness">
                     <div class="hotness-sprite hotness-hotness-4"></div>

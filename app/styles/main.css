@@ -1,4 +1,9 @@
 @font-face {
+  font-family: 'Open Sans';
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/open-sans-300.ttf");
+}
+
+@font-face {
   font-family: 'Glyphicons Halflings';
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot");
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.woff") format("woff"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.svg#123") format("svg");
@@ -1025,24 +1030,52 @@
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\000037}}
 .s-container h1, .s-container h2, .s-container h3, .s-container h4, .s-container h5, .s-container h6 {
+  font-family: inherit !important;
+  font-stretch: normal !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: 300 !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: #009bcb;
   margin: 15px 0 5px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000319}}
 .s-container h1.alt, .s-container h2.alt, .s-container h3.alt, .s-container h4.alt, .s-container h5.alt, .s-container h6.alt {
   color: #eee;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000324}}
+.s-container h1 {
+  font-size: 38px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000328}}
+.s-container h2 {
+  font-size: 32px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000332}}
+.s-container h3 {
+  font-size: 26px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000336}}
+.s-container a, .s-container textarea, .s-container input, .s-container select, .s-container button {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000346}}
 .s-container .clearfix:before, .s-container .clearfix:after {
   content: " ";
   display: table;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000350}}
 .s-container .clearfix:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000356}}
 .primary {
   color: #009bcb;
 }
@@ -1089,7 +1122,7 @@
   top: 0px;
   right: 0px;
   width: 250px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 12px;
   height: 100%;
   color: #fff;
@@ -1158,7 +1191,7 @@
   display: inline-block;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000376}}
-.s-container .s-options .s-ranking h2 {
+.s-container .s-options .s-ranking div {
   font-size: 20px;
   margin-top: 5px;
 }
@@ -1192,8 +1225,8 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\00003110}}
 .s-container .s-comment .s-textarea {
   float: left;
-  width: 170px;
-  height: 40px;
+  width: 180px;
+  height: 50px;
   border: none;
   padding: 5px;
 }
