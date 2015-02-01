@@ -39,18 +39,12 @@ surfy.toggleContainer = function () {
 };
 
 surfy.initContainer = function (currentPageUrl) {
-
-    this.currentPageUrl = currentPageUrl;
+    $("body").append('<div id="surfy" class="s-container"></div>');
 
     $.get(chrome.extension.getURL("templates/main.html"), function (template) {
-        surfy.template = template;
-        render();
-    });
-
-    function render() {
-        if (!surfy.template) return;
+        surfy.template = Handlebars.compile(template);
         surfy.refresh(true);
-    }
+    });
 
     surfyService.findComments(currentPageUrl).then(function (data) {
         surfy.comments = data.comments;
@@ -58,36 +52,54 @@ surfy.initContainer = function (currentPageUrl) {
     });
 
     surfyService.getPageRating(currentPageUrl).done(function (data) {
+        surfy.pageRating = data;
         surfy.rating = data;
         surfy.refresh(true);
     });
 };
 
-surfy.refresh = function (animate) {
+surfy.getContainer = function () {
+    return $("#surfy");
+};
 
-    $("#surfy").remove();
+surfy.refresh = function (animate) {
+    if (!surfy.template) {
+        return;
+    }
+
+    function calculateStars(rating) {
+        var stars = [];
+        for (var i = 0; i < 5; i++) {
+            stars[i] = {
+                index: i + 1,
+                empty: i >= rating ? '-empty' : ''
+            }
+        }
+        return stars;
+    }
+
+    var container = surfy.getContainer();
+
+    container.html('');
 
     var comments = surfy.comments || [];
     var rating = surfy.rating || 0;
+    var stars = calculateStars(rating);
 
-    var filledStars = rating;
-    var emptyStars = 5 - rating;
-
-    var template = Handlebars.compile(surfy.template);
-    var rendered = template({
+    var rendered = surfy.template({
         comments: comments,
-        filledStars: filledStars,
-        emptyStars: emptyStars
+        stars: stars
     });
-    $("body").append(rendered);
+
+    container.html(rendered);
 
     if (animate) {
         //rendering view for first time
         setTimeout(function () {
-            surfy.getContainer().addClass('visible');
+            container.addClass('visible');
         }, 200);
     } else {
-        surfy.getContainer().addClass('visible');
+        container.addClass('visible');
     }
 
     surfy.setEventHandlers();
@@ -96,7 +108,6 @@ surfy.refresh = function (animate) {
 surfy.setEventHandlers = function () {
     var self = this;
     this.findEl("#commentBtn").click(function () {
-//        if (surfy.isSignedIn) {
         var comment = $("#commentBox").val();
         if (comment.length > 0) {
             var request = {
@@ -108,7 +119,6 @@ surfy.setEventHandlers = function () {
                 surfy.refresh(false);
             });
         }
-//        }
     });
 
     this.findEl("#signIn").click(function () {
@@ -117,11 +127,25 @@ surfy.setEventHandlers = function () {
         }
     });
 
-    this.findEl(".starRating").click(function (event) {
-        var clickedStar = event.currentTarget;
+    function getRating(e) {
+        var clickedStar = e.currentTarget;
         var rating = $(clickedStar).data("rating");
+        return rating;
+    }
 
+    this.findEl(".starRating").click(function (e) {
+        var rating = getRating(e);
         alert(rating);
+    });
+
+    this.findEl(".starRating").mouseover(function (e) {
+        surfy.rating = getRating(e);
+        setTimeout(surfy.refresh, 50);
+    });
+
+    this.findEl(".starRating").mouseout(function (e) {
+        surfy.rating = surfy.pageRating;
+        setTimeout(surfy.refresh, 50);
     });
 
     this.findEl(".s-close").click(function (e) {
@@ -136,10 +160,6 @@ surfy.signIn = function () {
         console.log("token is" + surfy.authToken);
         surfy.isSignedIn = true;
     });
-};
-
-surfy.getContainer = function () {
-    return $("#surfy");
 };
 
 surfy.findEl = function (sel) {

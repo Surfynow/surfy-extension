@@ -1,49 +1,47 @@
-<div id="surfy" class="s-container">
-    <div class="s-bg"></div>
-    <div class="s-content">
-        <div>
-            <ul class="s-options">
-                <li class="s-ranking">
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="1"></h2>
+<div class="s-bg"></div>
+<div class="s-content">
+    <div>
+        <ul class="s-options">
+            <li class="s-ranking">
+                {{#each stars}}
+                <div class="glyphicon glyphicon-star{{ empty }} starRating" data-rating="{{ index }}"></div>
+                {{/each}}
+            </li>
+            <li class="s-hotness">
+                <div class="hotness-sprite hotness-hotness-4"></div>
+            </li>
+        </ul>
+        <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..."
+                                         id="commentBox"></textarea>
+            <button class="s-button" id="commentBtn">Post</button>
 
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="2"></h2>
+            <div class="s-entries"><h3 class="alt">Top Comments</h3>
+                {{#each comments}}
+                <div class="s-entry">
+                    <img class="s-avatar" src="{{ avatar }}"/>
 
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="3"></h2>
-
-                    <h2 class="glyphicon glyphicon-star starRating" data-rating="4"></h2>
-
-                    <h2 class="glyphicon glyphicon-star-empty starRating" data-rating="5"></h2>
-                </li>
-                <li class="s-hotness">
-                    <div class="hotness-sprite hotness-hotness-4"></div>
-                </li>
-            </ul>
-            <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..." id="commentBox"></textarea>
-                <button class="s-button" id="commentBtn">Post</button>
-
-                <div class="s-entries"><h3 class="alt">Top Comments</h3>
-                    {{#each comments}}
-                    <div class="s-entry">
-                        <img class="s-avatar" src="{{ avatar }}" />
-                        <div class="s-text">
-                            <div class="s-author">{{ author }}</div>
-                            <div class="s-cmt">{{ comment }}</div>
-                        </div>
-                        <div class="s-controls"><span class="glyphicon glyphicon-pencil"></span></div>
-                        <div class="clearfix"></div>
+                    <div class="s-text">
+                        <div class="s-author">{{ author }}</div>
+                        <div class="s-cmt">{{ comment }}</div>
                     </div>
-                    {{/each}}
+                    <div class="s-controls"><span class="glyphicon glyphicon-pencil"></span></div>
+                    <div class="clearfix"></div>
                 </div>
+                {{/each}}
             </div>
         </div>
     </div>
+</div>
 
-    <ul class="s-top-options">
-        <li><button id="signIn" class="s-signin">Sign me in</button></li>
-        <li><a href="#" class="s-close">x</a></li>
-    </ul>
+<ul class="s-top-options">
+    <li>
+        <button id="signIn" class="s-signin">Sign me in</button>
+    </li>
+    <li><a href="#" class="s-close">x</a></li>
+</ul>
 
-    <div class="s-surfylogo">
-        <a href="#" target="_blank"><div></div></a>
-    </div>
+<div class="s-surfylogo">
+    <a href="#" target="_blank">
+        <div></div>
+    </a>
 </div>

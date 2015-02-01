@@ -3,6 +3,10 @@
 var surfyService = surfyService || {};
 
 surfyService.procesComments = function (comments) {
+    if (!comments) {
+        return;
+    }
+
     $.map(comments, function (c) {
         c.avatar = chrome.extension.getURL("/images/surfy-avatar.png");
     });

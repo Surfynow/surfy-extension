@@ -9,7 +9,7 @@
   top: 0px;
   right: 0px;
   width: 250px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 12px;
   height: 100%;
   color: #fff;
@@ -73,7 +73,7 @@
     }
 
     .s-ranking {
-      h2 {
+      div {
         font-size: 20px;
         margin-top: 5px;
       }
@@ -109,8 +109,8 @@
 
     .s-textarea {
       float: left;
-      width: 170px;
-      height: 40px;
+      width: 180px;
+      height: 50px;
       border: none;
       padding: 5px;
     }
