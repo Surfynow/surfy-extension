@@ -121,6 +121,12 @@ surfy.doRefresh = function (animate) {
 };
 
 surfy.setEventHandlers = function () {
+    function getRating(e) {
+        var clickedStar = e.currentTarget;
+        var rating = $(clickedStar).data("rating");
+        return rating;
+    }
+
     var self = this;
     this.findEl("#commentBtn").click(function () {
         var comment = $("#commentBox").val();
@@ -142,13 +148,7 @@ surfy.setEventHandlers = function () {
         }
     });
 
-    function getRating(e) {
-        var clickedStar = e.currentTarget;
-        var rating = $(clickedStar).data("rating");
-        return rating;
-    }
-
-    this.findEl(".starRating").click(function (e) {
+    this.findEl(".starRating").mouseup(function (e) {
         var request = {
             url: window.location.href,
             rating: getRating(e)
@@ -159,12 +159,12 @@ surfy.setEventHandlers = function () {
         });
     });
 
-    this.findEl(".starRating").mouseover(function (e) {
+    this.findEl(".starRating").mouseenter(function (e) {
         surfy.rating = getRating(e);
         surfy.refresh();
     });
 
-    this.findEl(".starRating").mouseout(function (e) {
+    this.findEl(".starRating").mouseleave(function () {
         surfy.rating = surfy.pageRating.rating;
         surfy.refresh();
     });
