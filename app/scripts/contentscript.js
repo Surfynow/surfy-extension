@@ -53,26 +53,36 @@ surfy.initContainer = function (currentPageUrl) {
 
     surfyService.getPageRating(currentPageUrl).done(function (data) {
         surfy.pageRating = data;
-        surfy.rating = data;
+        surfy.rating = data.rating;
         surfy.refresh(true);
     });
+
+    setInterval(surfy.refresh, 5000);
 };
 
 surfy.getContainer = function () {
     return $("#surfy");
 };
 
+
 surfy.refresh = function (animate) {
+    clearTimeout(surfy.refreshTimeout);
+    surfy.refreshTimeout = setTimeout(function () {
+        surfy.doRefresh(animate);
+    }, 100);
+};
+
+surfy.doRefresh = function (animate) {
     if (!surfy.template) {
         return;
     }
 
     function calculateStars(rating) {
         var stars = [];
-        for (var i = 0; i < 5; i++) {
-            stars[i] = {
-                index: i + 1,
-                empty: i >= rating ? '-empty' : ''
+        for (var i = 1; i <= 5; i++) {
+            stars[i - 1] = {
+                index: i,
+                empty: i > rating ? '-empty' : ''
             }
         }
         return stars;
@@ -82,13 +92,18 @@ surfy.refresh = function (animate) {
 
     container.html('');
 
+    console.log('refreshed rating', surfy.rating);
+
     var comments = surfy.comments || [];
-    var rating = surfy.rating || 0;
+    var nocomment = comments.length == 0;
+    var rating = parseFloat(surfy.rating) || 0;
     var stars = calculateStars(rating);
 
     var rendered = surfy.template({
         comments: comments,
-        stars: stars
+        nocomment: nocomment,
+        stars: stars,
+        isHot: surfy.pageRating.isHot
     });
 
     container.html(rendered);
@@ -134,18 +149,24 @@ surfy.setEventHandlers = function () {
     }
 
     this.findEl(".starRating").click(function (e) {
-        var rating = getRating(e);
-        alert(rating);
+        var request = {
+            url: window.location.href,
+            rating: getRating(e)
+        };
+        surfyService.submitRating(request).then(function (data) {
+            surfy.pageRating = data;
+            surfy.rating = data.rating;
+        });
     });
 
     this.findEl(".starRating").mouseover(function (e) {
         surfy.rating = getRating(e);
-        setTimeout(surfy.refresh, 50);
+        surfy.refresh();
     });
 
     this.findEl(".starRating").mouseout(function (e) {
-        surfy.rating = surfy.pageRating;
-        setTimeout(surfy.refresh, 50);
+        surfy.rating = surfy.pageRating.rating;
+        surfy.refresh();
     });
 
     this.findEl(".s-close").click(function (e) {

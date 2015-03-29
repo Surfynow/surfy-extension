@@ -2,13 +2,11 @@
   font-family: 'Open Sans';
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/open-sans-300.ttf");
 }
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot");
   src: url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.woff") format("woff"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("chrome-extension://__MSG_@@extension_id__/fonts/glyphicons-halflings-regular.svg#123") format("svg");
 }
-
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_glyphicons\.scss}line{font-family:\0000325}}
 .glyphicon {
   position: relative;
@@ -1065,7 +1063,7 @@
   line-height: inherit;
   box-sizing: border-box;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_utils\.scss}line{font-family:\0000345}}
 .s-container .clearfix:before, .s-container .clearfix:after {
   content: " ";
   display: table;
@@ -1080,34 +1078,35 @@
   color: #009bcb;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/hotness\/\*\.png}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/hotness\/\*\.png}line{font-family:\0000380}}
 .hotness-sprite, .hotness-hotness-0, .hotness-hotness-1, .hotness-hotness-2, .hotness-hotness-3, .hotness-hotness-4 {
-  background: url('chrome-extension://__MSG_@@extension_id__/images/generated/hotness-sb6d1e5daad.png') no-repeat;
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/generated/hotness-sb3fcef91c3.png');
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.7\/frameworks\/compass\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/\.rbenv\/versions\/2\.0\.0-p643\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000384}}
 .hotness-hotness-0 {
-  background-position: 0 -100px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.7\/frameworks\/compass\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000360}}
-.hotness-hotness-1 {
-  background-position: 0 -50px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.7\/frameworks\/compass\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000360}}
-.hotness-hotness-2 {
-  background-position: 0 -25px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.7\/frameworks\/compass\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000360}}
-.hotness-hotness-3 {
   background-position: 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.7\/frameworks\/compass\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000360}}
-.hotness-hotness-4 {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/\.rbenv\/versions\/2\.0\.0-p643\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000384}}
+.hotness-hotness-1 {
+  background-position: 0 -25px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/\.rbenv\/versions\/2\.0\.0-p643\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000384}}
+.hotness-hotness-2 {
+  background-position: 0 -50px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/\.rbenv\/versions\/2\.0\.0-p643\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000384}}
+.hotness-hotness-3 {
   background-position: 0 -75px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/\.rbenv\/versions\/2\.0\.0-p643\/lib\/ruby\/gems\/2\.0\.0\/gems\/compass-core-1\.0\.3\/stylesheets\/compass\/utilities\/sprites\/_base\.scss}line{font-family:\0000384}}
+.hotness-hotness-4 {
+  background-position: 0 -100px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/_sprites\.scss}line{font-family:\000034}}
@@ -1208,12 +1207,12 @@
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000394}}
 .s-container .s-top-options .s-close {
-  color: #aaaaaa;
+  color: #aaa;
   font-size: 14px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mercedh2k\/Workspaces\/surfy\/surfy-extension\/app\/styles\/main\.scss}line{font-family:\0000399}}
 .s-container .s-top-options .s-signin {
-  color: #aaaaaa;
+  color: #aaa;
   background: none;
   border: none;
   text-decoration: underline;

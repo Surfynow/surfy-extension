@@ -7,15 +7,20 @@
                 <div class="glyphicon glyphicon-star{{ empty }} starRating" data-rating="{{ index }}"></div>
                 {{/each}}
             </li>
+            {{#isHot}}
             <li class="s-hotness">
                 <div class="hotness-sprite hotness-hotness-4"></div>
             </li>
+            {{/isHot}}
         </ul>
         <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..."
                                          id="commentBox"></textarea>
             <button class="s-button" id="commentBtn">Post</button>
 
             <div class="s-entries"><h3 class="alt">Top Comments</h3>
+                {{#nocomment}}
+                Be the first one to contribute! :)
+                {{/nocomment}}
                 {{#each comments}}
                 <div class="s-entry">
                     <img class="s-avatar" src="{{ avatar }}"/>

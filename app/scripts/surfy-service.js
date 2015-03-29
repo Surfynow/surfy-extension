@@ -2,7 +2,7 @@
 
 var surfyService = surfyService || {};
 
-surfyService.procesComments = function (comments) {
+surfyService.processComments = function (comments) {
     if (!comments) {
         return;
     }
@@ -16,7 +16,7 @@ surfyService.findComments = function (currentPageUrl) {
     var def = $.Deferred();
 
     $.get(surfy.config.restUrl + "/comment/" + currentPageUrl).done(function (data) {
-        surfyService.procesComments(data.comments);
+        surfyService.processComments(data.comments);
         def.resolve(data);
     });
 
@@ -27,7 +27,7 @@ surfyService.submitComment = function (newComment) {
     var def = $.Deferred();
 
     $.post(surfy.config.restUrl + "/comment", newComment, function (data) {
-        surfyService.procesComments(data.comments);
+        surfyService.processComments(data.comments);
         def.resolve(data);
     });
 
@@ -38,11 +38,21 @@ surfyService.getPageRating = function (currentPageUrl) {
     var def = $.Deferred();
 
     $.get(surfy.config.restUrl + "/rating/" + currentPageUrl).done(function (data) {
-        var rating = 0;
+        var rating = {};
         if (data.success) {
-            rating = data.rating.rating.toFixed();//FIXME we should show partial ratings like 3.3 correctly by partially filling the arrow
+            rating = data.rating;
         }
         def.resolve(rating);
+    });
+
+    return def.promise();
+};
+
+surfyService.submitRating = function (newRating) {
+    var def = $.Deferred();
+
+    $.post(surfy.config.restUrl + "/rating/", newRating, function (data) {
+        def.resolve(data);
     });
 
     return def.promise();
