@@ -8,7 +8,9 @@ surfyService.processComments = function (comments) {
     }
 
     $.map(comments, function (c) {
-        c.avatar = chrome.extension.getURL("/images/surfy-avatar.png");
+        if (!c.avatar) {
+            c.avatar = chrome.extension.getURL("/images/surfy-avatar.png");
+        }
     });
 };
 
