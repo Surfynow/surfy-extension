@@ -40,6 +40,7 @@ surfyService.submitRating = function (newRating) {
     var def = $.Deferred();
 
     $.post(surfy.config.restUrl + "/rating/", newRating, function (data) {
+        surfyService.processComments(data.comments);
         def.resolve(data);
     });
 

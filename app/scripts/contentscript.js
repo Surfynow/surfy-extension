@@ -73,6 +73,7 @@ surfy.doRefresh = function (animate) {
     }
 
     function calculateStars(rating) {
+        var rating = Math.round(rating);
         var stars = [];
         for (var i = 1; i <= 5; i++) {
             stars[i - 1] = {
