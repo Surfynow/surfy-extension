@@ -12,6 +12,7 @@
         "scripts": [
             "lib/jquery.min.js",
             "scripts/chromereload.js",
+            "scripts/surfy-service.js",
             "scripts/surfy.js",
             "scripts/background.js"
         ]

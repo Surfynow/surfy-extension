@@ -46,14 +46,10 @@ surfy.initContainer = function (currentPageUrl) {
         surfy.refresh(true);
     });
 
-    surfyService.findComments(currentPageUrl).then(function (data) {
-        surfy.comments = data.comments;
-        surfy.refresh(true);
-    });
-
-    surfyService.getPageRating(currentPageUrl).done(function (data) {
-        surfy.pageRating = data;
-        surfy.rating = data.rating;
+    surfyService.getPageInfo(currentPageUrl).done(function (data) {
+        surfy.pageRating = data.success ? data.surfy : {};
+        surfy.comments = data.success ? data.surfy.comments : [];
+        surfy.rating = data.success ? data.surfy.rating : null;
         surfy.refresh(true);
     });
 
