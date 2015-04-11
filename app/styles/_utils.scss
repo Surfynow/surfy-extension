@@ -5,12 +5,40 @@
 
 .s-container {
   h1, h2, h3, h4, h5, h6 {
+    font-family: inherit !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: $primary;
-    margin-bottom: 5px;
+    margin: 15px 0 5px 0;
 
     &.alt {
       color: #eee;
     }
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  a, textarea, input, select, button {
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    box-sizing: border-box;
   }
 
   .clearfix {

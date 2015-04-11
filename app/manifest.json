@@ -32,6 +32,7 @@
             "js": [
                 "lib/jquery.min.js",
                 "lib/handlebars-v2.0.0.js",
+                "scripts/surfy-service.js",
                 "scripts/surfy.js",
                 "scripts/contentscript.js"
             ],
@@ -57,10 +58,7 @@
     },
 
     "web_accessible_resources": [
-        "fonts/glyphicons-halflings-regular.eot",
-        "fonts/glyphicons-halflings-regular.svg",
-        "fonts/glyphicons-halflings-regular.ttf",
-        "fonts/glyphicons-halflings-regular.woff",
+        "fonts/*",
         "images/*.png",
         "images/generated/*.png",
         "templates/main.html"

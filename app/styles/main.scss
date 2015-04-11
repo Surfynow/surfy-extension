@@ -9,7 +9,7 @@
   top: 0px;
   right: 0px;
   width: 250px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 12px;
   height: 100%;
   color: #fff;
@@ -18,6 +18,11 @@
   -webkit-transition: -webkit-transform 1s;
   -o-transition: -o-transform 1s;
   transition: transform 1s;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
 
   &.visible {
     @include transform(translate(0, 0));
@@ -30,7 +35,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.75);
-//    -webkit-filter: blur(1px);
+    //    -webkit-filter: blur(1px);
     z-index: 0;
   }
 
@@ -42,8 +47,8 @@
     div {
       background: url('chrome-extension://__MSG_@@extension_id__/images/surfy-logo-alt.png') no-repeat;
       background-size: 100%;
-      width: 76px;
-      height: 41px;
+      width: 70px;
+      height: 37px;
     }
   }
 
@@ -68,7 +73,7 @@
     }
 
     .s-ranking {
-      h2 {
+      div {
         font-size: 20px;
         margin-top: 5px;
       }
@@ -104,8 +109,8 @@
 
     .s-textarea {
       float: left;
-      width: 170px;
-      height: 40px;
+      width: 180px;
+      height: 50px;
       border: none;
       padding: 5px;
     }
@@ -128,9 +133,9 @@
         float: left;
         width: 35px;
         height: 35px;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 50px;
-        border: 2px solid #eee;
+        border: 1px solid #eee;
       }
 
       .s-text {
