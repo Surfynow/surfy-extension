@@ -4,7 +4,7 @@ function showExtension(tabId, changeInfo, tab) {
 
     if (tab.status === "complete" && tab.url !== "chrome://newtab/") {
         var currentUrl = encodeURIComponent(tab.url);
-        $.get(surfyUrl + "/" + currentUrl).done(function (data) {
+        surfyService.getPageInfo(currentUrl).done(function (data) {
             chrome.pageAction.show(tabId);
             // FIXME: Specify different icons for each rating category
             var rating = data.surfy.rating;
