@@ -1,3 +1,4 @@
+var surfy = surfy || {};
 var surfyService = surfyService || {};
 
 function showExtension(tabId, changeInfo, tab) {
@@ -27,18 +28,17 @@ chrome.pageAction.onClicked.addListener(function (tab) {
     });
 });
 
-function getQueryVariable(url, variable) {
-    var query = url.split("?")[1];
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    function getQueryVariable(url, variable) {
+        var query = url.split("?")[1];
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i) {
+            var pair = vars[i].split('=');
+            if (decodeURIComponent(pair[0]) == variable) {
+                return decodeURIComponent(pair[1]);
+            }
         }
     }
-}
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
     var url = "";
     if (request.method == 'google') {
@@ -50,7 +50,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     chrome.identity.launchWebAuthFlow(
         {'url': url, 'interactive': true},
         function (redirect_url) {
-            sendResponse({token: getQueryVariable(redirect_url, "code")})
+            sendResponse({method: request.method, token: getQueryVariable(redirect_url, "code")})
         });
     return true;
 });

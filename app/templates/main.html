@@ -40,11 +40,20 @@
 </div>
 
 <ul class="s-top-options">
+    {{#notSignedId}}
     <li>
-        <button id="signIn" class="s-signin">Sign me in</button>
+        <button class="s-signin">Sign me in</button>
     </li>
+    {{/notSignedId}}
     <li><a href="#" class="s-close">x</a></li>
 </ul>
+
+{{#notSignedId}}
+<div class="s-signin-panel">
+    <button class="s-signin s-btn-signin-fb" width="73" height="25" data="fb" />
+    <button class="s-signin s-btn-signin-google" width="73" height="25" data="google" />
+</div>
+{{/notSignedId}}
 
 <div class="s-surfylogo">
     <a href="#" target="_blank">

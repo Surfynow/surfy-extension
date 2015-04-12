@@ -66,10 +66,9 @@
 
   .s-content {
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 0;
     z-index: 1;
-    margin-top: 15px;
   }
 
   .s-link {
@@ -113,6 +112,29 @@
       background: none;
       border: none;
       text-decoration: underline;
+    }
+  }
+
+  .s-signin-panel {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+
+    .s-signin {
+      width: 73px;
+      height: 25px;
+      margin-right: 5px;
+    }
+
+    .s-btn-signin-fb {
+      border: none;
+      background: url('chrome-extension://__MSG_@@extension_id__/images/fb_login.png') no-repeat;
+    }
+
+    .s-btn-signin-google {
+      border: none;
+      background: url('chrome-extension://__MSG_@@extension_id__/images/google_login.png') no-repeat;
     }
   }
 

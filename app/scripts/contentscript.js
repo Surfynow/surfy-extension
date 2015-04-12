@@ -1,8 +1,10 @@
 'use strict';
 
-var surfy = surfy || {};
+var surfy = surfy || {
+    config: { refreshInterval: 5000 },
+    isSignedIn: false
+};
 var surfyService = surfyService || {};
-surfy.isSignedIn = false;
 
 surfy.init = function () {
     function addListener() {
@@ -52,7 +54,9 @@ surfy.initContainer = function (currentPageUrl) {
         surfy.refresh(true);
     });
 
-    setInterval(surfy.refresh, 5000);
+    if (surfy.config.refreshInterval > 0) {
+        setInterval(surfy.refresh, surfy.config.refreshInterval);
+    }
 };
 
 surfy.getContainer = function () {
@@ -98,6 +102,7 @@ surfy.doRefresh = function (animate) {
     var rendered = surfy.template({
         comments: comments,
         nocomment: nocomment,
+        notSignedId: !surfy.isSignedIn,
         stars: stars,
         isHot: surfy.pageInfo.isHot
     });
@@ -139,9 +144,19 @@ surfy.setEventHandlers = function () {
         }
     });
 
-    this.findEl("#signIn").click(function () {
-        if (!surfy.authToken) {
-            surfy.signIn();
+    this.findEl(".s-top-options .s-signin").click(function () {
+        var content = self.findEl(".s-content");
+        var top = content.css('top') === '15px' ? 65 : 15;
+        content.animate({
+            top: top
+        }, 'fast');
+        self.findEl(".s-signin-panel").fadeToggle('fast');
+    });
+
+    this.findEl(".s-signin-panel button").click(function (e) {
+        if (!surfy.isSignedIn) {
+            var method = $(e.currentTarget).attr('data');
+            surfy.signIn(method);
         }
     });
 
@@ -174,9 +189,14 @@ surfy.setEventHandlers = function () {
 
 surfy.signIn = function (method) {
     chrome.runtime.sendMessage({getToken: true, method: method}, function (response) {
-        surfy.authToken = response.token;
-        console.log("token is" + surfy.authToken);
-        surfy.isSignedIn = true;
+        surfyService.signIn(response.method, response.token).done(function (data) {
+            if (!data.success) {
+                alert('unable to sign in!');
+                return;
+            }
+            surfy.sessionId = data.sessionId;
+            surfy.isSignedIn = data.success;
+        });
     });
 };
 

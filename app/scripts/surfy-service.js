@@ -2,6 +2,17 @@
 
 var surfyService = surfyService || {};
 
+surfyService.signIn = function (method, token) {
+    var def = $.Deferred();
+
+    var signInData = { name: method + 'SignIn', token: token };
+    $.post(surfy.config.restUrl + "/account/action", signInData, function (data) {
+        def.resolve(data);
+    });
+
+    return def.promise();
+};
+
 surfyService.processComments = function (comments) {
     if (!comments) {
         return;
