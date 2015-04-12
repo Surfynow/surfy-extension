@@ -102,6 +102,7 @@ surfy.doRefresh = function (animate) {
     var rendered = surfy.template({
         comments: comments,
         nocomment: nocomment,
+        signedId: surfy.isSignedIn,
         notSignedId: !surfy.isSignedIn,
         stars: stars,
         isHot: surfy.pageInfo.isHot

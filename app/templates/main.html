@@ -14,9 +14,11 @@
             </li>
             {{/isHot}}
         </ul>
-        <div class="s-comment"><textarea class="s-textarea" placeholder="post your comment here..."
-                                         id="commentBox"></textarea>
-            <button class="s-button" id="commentBtn">Post</button>
+        <div class="s-comment"><textarea class="s-textarea" id="commentBox"
+                                        {{#signedId}}placeholder="post your comment here..."{{/signedId}}
+                                        {{#notSignedId}}placeholder="please sign in first to post comment"{{/notSignedId}}
+                                        {{#notSignedId}}disabled{{/notSignedId}}></textarea>
+            <button class="s-button" id="commentBtn" {{#notSignedId}}disabled{{/notSignedId}}>Post</button>
 
             <div class="s-entries"><h3 class="alt">Top Comments</h3>
                 {{#nocomment}}
