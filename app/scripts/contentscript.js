@@ -102,8 +102,8 @@ surfy.doRefresh = function (animate) {
     var rendered = surfy.template({
         comments: comments,
         nocomment: nocomment,
-        stars: stars,
-        isHot: surfy.pageRating.isHot
+        stars: stars
+//        isHot: surfy.pageRating.isHot || false
     });
 
     container.html(rendered);
@@ -133,7 +133,8 @@ surfy.setEventHandlers = function () {
         if (comment.length > 0) {
             var request = {
                 url: window.location.href,
-                comment: comment
+                comment: comment,
+                token: surfy.authToken
             };
             surfyService.submitComment(request).then(function (data) {
                 surfy.comments = data.comments;
@@ -175,8 +176,8 @@ surfy.setEventHandlers = function () {
     });
 };
 
-surfy.signIn = function () {
-    chrome.runtime.sendMessage({getToken: true}, function (response) {
+surfy.signIn = function (method) {
+    chrome.runtime.sendMessage({getToken: true, method: method}, function (response) {
         surfy.authToken = response.token;
         console.log("token is" + surfy.authToken);
         surfy.isSignedIn = true;
