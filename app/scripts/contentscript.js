@@ -46,14 +46,9 @@ surfy.initContainer = function (currentPageUrl) {
         surfy.refresh(true);
     });
 
-    surfyService.findComments(currentPageUrl).then(function (data) {
-        surfy.comments = data.comments;
-        surfy.refresh(true);
-    });
-
-    surfyService.getPageRating(currentPageUrl).done(function (data) {
-        surfy.pageRating = data;
-        surfy.rating = data.rating;
+    surfyService.getPageInfo(currentPageUrl).done(function (data) {
+        surfy.pageInfo = data.success ? data.surfy : {};
+        surfy.rating = surfy.pageInfo.rating;
         surfy.refresh(true);
     });
 
@@ -78,6 +73,7 @@ surfy.doRefresh = function (animate) {
     }
 
     function calculateStars(rating) {
+        var rating = Math.round(rating);
         var stars = [];
         for (var i = 1; i <= 5; i++) {
             stars[i - 1] = {
@@ -94,7 +90,7 @@ surfy.doRefresh = function (animate) {
 
     console.log('refreshed rating', surfy.rating);
 
-    var comments = surfy.comments || [];
+    var comments = surfy.pageInfo.comments || [];
     var nocomment = comments.length == 0;
     var rating = parseFloat(surfy.rating) || 0;
     var stars = calculateStars(rating);
@@ -102,8 +98,8 @@ surfy.doRefresh = function (animate) {
     var rendered = surfy.template({
         comments: comments,
         nocomment: nocomment,
-        stars: stars
-//        isHot: surfy.pageRating.isHot || false
+        stars: stars,
+        isHot: surfy.pageInfo.isHot
     });
 
     container.html(rendered);
@@ -137,7 +133,7 @@ surfy.setEventHandlers = function () {
                 token: surfy.authToken
             };
             surfyService.submitComment(request).then(function (data) {
-                surfy.comments = data.comments;
+                surfy.pageInfo.comments = data.comments;
                 surfy.refresh(false);
             });
         }
@@ -155,7 +151,7 @@ surfy.setEventHandlers = function () {
             rating: getRating(e)
         };
         surfyService.submitRating(request).then(function (data) {
-            surfy.pageRating = data;
+            surfy.pageInfo = $.extend({}, surfy.pageInfo, data);
             surfy.rating = data.rating;
         });
     });
@@ -166,7 +162,7 @@ surfy.setEventHandlers = function () {
     });
 
     this.findEl(".starRating").mouseleave(function () {
-        surfy.rating = surfy.pageRating.rating;
+        surfy.rating = surfy.pageInfo.rating;
         surfy.refresh();
     });
 

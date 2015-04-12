@@ -1,4 +1,4 @@
-var surfyUrl = surfy.config.restUrl;
+var surfyService = surfyService || {};
 
 function showExtension(tabId, changeInfo, tab) {
 
@@ -7,9 +7,10 @@ function showExtension(tabId, changeInfo, tab) {
         $.get(surfyUrl + "/" + currentUrl).done(function (data) {
             chrome.pageAction.show(tabId);
             // FIXME: Specify different icons for each rating category
-            if (data.rating < 3) {
+            var rating = data.surfy.rating;
+            if (rating < 3) {
                 chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
-            } else if (data.rating === 3) {
+            } else if (rating === 3) {
                 chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
             } else {
                 chrome.pageAction.setIcon({tabId: tabId, path: "images/surfy-icon.png"});
