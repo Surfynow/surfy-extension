@@ -13,6 +13,20 @@ surfyService.signIn = function (method, token) {
     return def.promise();
 };
 
+surfyService.setupSession = function (surfy, data) {
+    surfy.sessionId = data.sessionId;
+    surfy.isSignedIn = data.success;
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if ($.isPlainObject(settings.data) && !settings.data.sessionId) {
+                settings.data.sessionId = surfy.sessionId;
+            } else {
+                settings.data += '&sessionId=' + surfy.sessionId;
+            }
+        }
+    });
+};
+
 surfyService.processComments = function (comments) {
     if (!comments) {
         return;

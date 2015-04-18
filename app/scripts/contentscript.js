@@ -195,8 +195,7 @@ surfy.signIn = function (method) {
                 alert('unable to sign in!');
                 return;
             }
-            surfy.sessionId = data.sessionId;
-            surfy.isSignedIn = data.success;
+            surfyService.setupSession(surfy, data);
         });
     });
 };
